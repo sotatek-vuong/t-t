@@ -1,0 +1,17 @@
+<swiper
+  style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+  [lazy]="true"
+  [navigation]="true"
+  class="mySwiper"
+>
+  <ng-template swiperSlide *ngFor="let image of images; let i = index">
+    <!-- Required swiper-lazy class and image source specified in data-src attribute -->
+    <img
+      data-src="{{ image }}"
+      (click)="handleChange($event)"
+      class="swiper-lazy"
+    />
+    <input type="file" (change)="handleChange($event, i)" />
+    <!-- Preloader image -->
+  </ng-template>
+</swiper>
